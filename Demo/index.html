@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Демонстрационный пример без редактора</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="margin: 0; background: black">
+
+<div class="output"></div>
+
+
+<script type="module">
+
+    import("../module.js").then(module => {
+        let form = {
+            caption:  "Заявка на экскурсионный <br> полет на Марс",
+            theme: "night",
+            submit: {
+                text: "Полететь на Марс",
+            },
+            elements: [{
+                label: "Фамилия",
+                type: "text",
+                id: "lastName_cyrillic",
+                tip: "Фамилию вводить кириллицей",
+                placeholder: "Введите фамилию"
+            }, {
+                label: "Имя",
+                type: "text",
+                id: "firstName_cyrillic",
+                placeholder: "Введите имя"
+            }, {
+                label: "Отчество",
+                type: "text",
+                id: "patronymic_cyrillic",
+                placeholder: "Введите отчество"
+            }, {
+                type: "group",
+                groupElements: [
+                    {
+                        label: "Фамилия латиницей",
+                        type: "text",
+                        id: "lastName",
+                    }, {
+                        label: "Имя латиницей<br><br>",
+                        type: "text",
+                        id: "firstName",
+                    }
+                ]
+            }, {
+                type: "date",
+                label: "Дата рождения",
+                max: "2006-07-01",
+                min: "1901-01-01",
+                id: "dateOfBirth",
+            }, {
+                type: "radio",
+                label: "Пол",
+                id: "sex",
+                values: ["Мужской", "Женский"],
+            }, {
+                label: "Семейное положение",
+                id: "maritalStatus",
+                type: "select",
+                options: ["женат/замужем", "в \"гражданском браке\"", "разведен", "холост", "вдовец"],
+            }, {
+                label: "Образование",
+                id: "education",
+                type: "select",
+                options: ["высшее", "среднее специальное", "среднее", "студент"],
+                tip: "Эта информация действительно важна"
+            }, {
+                type: "header",
+                value: "Контактная информация"
+            }, {
+                label: "Моб. телефон",
+                type: "tel",
+                id: "phoneNumber",
+                tip: "Формат +7xxxxxxxxxx",
+                pattern: "\\+7[0-9]{3}[0-9]{3}[0-9]{4}"
+            }, {
+                label: "Электронная почта",
+                type: "email",
+                id: "email",
+            }, {
+                type: "checkbox",
+                id: "soberMind",
+                values: ["Ставя эту галочку, подтверждаю, что поставил её в трезвом уме и твёрдой памяти"],
+                tip: "Обязательное поле"
+            }, {
+                type: "textarea",
+                id: "about",
+                label: "Расскажите о себе",
+                placeholder: "Пару слов..."
+            }
+            ],
+        }
+
+        let json = JSON.stringify(form);
+
+        document.querySelector(".output").innerHTML = module.getFormFromJSON(json);
+        module.initHandlers();
+    });
+
+</script>
+
+</body>
+</html>
