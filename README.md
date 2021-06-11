@@ -1,7 +1,7 @@
 # Vk-Intern-Task
 #### Решение тестового задания на стажировку <br> в команду фронтенд-инфраструктуры компании "Вконтакте"
-##### Демо1 - ссылка удалена
-##### Демо2 - ссылка удалена
+##### Демо1 - https://sanicdogg.github.io/VK-Intern-Task/Demo/index.html
+##### Демо2 - https://sanicdogg.github.io/VK-Intern-Task/Demo/app.html
 Создать модуль на JavaScript, генерирующий
 HTML-форму из JSON-кода. <br>
 Полный текст задания:<br>
